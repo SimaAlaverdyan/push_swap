@@ -1,34 +1,38 @@
 #include "../include/push_swap.h"
 
+void print(t_stack *stack, t_elem *head)
+{
+    t_elem *current_node = head;
+   	size_t i = 0;
+    while (i < stack->size) {
+        printf("%d[%d] ", current_node->value, current_node->index);
+        current_node = current_node->next;
+        i++;
+    }
+}
+
 int main(int argc, char **argv)
 {
-    // t_stack     *a;
-    // // t_stack     *b;
+    t_stack     *stack_a;
+    t_stack     *stack_b;
+    int         error;
 
-    // a = (t_stack *)malloc(sizeof(t_stack));
-    // a->head = malloc(sizeof(t_elem));
-    // for (int i = 1; i < argc; i++)
-    // {
-    //     a->head->value = *argv[i];
-    //     a->head->index = 0;
-    //     a->head->status = false;
-    // }
-    // for (int i = 1; i < argc; i++)
-    // {
-    //     printf("%c\n %d\n %d\n", a->head->value, a->start->index, a->start->status);
-    // }
-    
-    t_stack     *stack;
-    
-    stack = init_stack();
-    parse(stack, argc, argv);
-
-    // for (size_t i = 0; i < stack->size; i++)
-    // {
-    //     printf("%zu\n", stack->size);
-    //     printf("%d\n", stack->head->value);
-    // }
-    
+    if (argc == 1)
+        exit(0);
+    if((error = errorManagement(argv)) == 1)
+    {
+        printf("main exit\n");
+        return 0;
+    }
+    stack_a = init_stack();
+    stack_b = init_stack();
+    stack_a->stack_index = 'a';
+    stack_b->stack_index = 'b';
+    parse(stack_a, argc, argv);
+    t_elem *head = stack_a->head;
+    ManageIndexes(argv, argc, stack_a, head);
+    // print(stack, head);
+    startSorting(stack_a, stack_b);
 
     return (0);
 }

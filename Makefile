@@ -3,14 +3,17 @@ NAME			=	push_swap
 source			=	main.c \
 					checker.c \
 					init.c \
-					operations.c
+					operations.c \
+					indexing.c \
+					error_managment.c \
+					utils.c \
+					sorting.c
 
 HEAD			=	include/push_swap.h
 
 LIBFT			=	libft/libft.a
 
 OBJS			=	${addprefix source/,${source:.c=.o}}
-
 
 CC				=	gcc
 

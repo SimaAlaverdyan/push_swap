@@ -12,21 +12,21 @@
 
 #include "../include/push_swap.h"
 
-int is_all_digit(char **av)
-{
-    int i;
+// int     is_all_digit(char **av)
+// {
+//     int i;
 
-    i = 1;
-    while (av[i])
-    {
-        if (ft_isdigit(*av[i]) != 1)
-            return (0);
-        i++;
-    }
-    return (1);
-}
+//     i = 1;
+//     while (av[i])
+//     {
+//         if (ft_isdigit(*av[i]) != 1)
+//             return (0);
+//         i++;
+//     }
+//     return (1);
+// }
 
-int ft_strcmp(const char *s1, const char *s2)
+int     ft_strcmp(const char *s1, const char *s2)
 {
     while (*s1 == *s2++)
         if (*s1++ == 0)
@@ -34,7 +34,7 @@ int ft_strcmp(const char *s1, const char *s2)
     return (*(unsigned char *)s1 - *(unsigned char *)--s2);
 }
 
-int isdub(char **av, char *c, int i)
+int     isdub(char **av, char *c, int i)
 {
     int j;
 
@@ -48,14 +48,28 @@ int isdub(char **av, char *c, int i)
     return (0);
 }
 
-int isDublicate(char **av)
+int     isDublicate(char **av)
 {
     int i;
-    i = 1;
 
+    i = 1;
     while (av[i] != NULL)
     {
         if (isdub(av, av[i], i) == 1)
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+int     IsInteger(char **argv)
+{
+    int i;
+
+    i = 1;
+    while (argv[i] != NULL)
+    {
+        if (ft_atoi(argv[i]) <= 2147483647 && ft_atoi(argv[i]) <= -2147483647)
             return (0);
         i++;
     }

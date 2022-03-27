@@ -5,8 +5,7 @@ t_stack         *init_stack(void)
 	t_stack *stack;
 
 	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
-		// terminate(ERR_MEMALLOC);
-        printf("%s\n", "error");
+		error();
 	stack->head = NULL;
 	stack->size = 0;
 	stack->pairs = 0;
@@ -38,12 +37,12 @@ void        add_to_stack(t_stack *stack, t_elem *elem)
     }
 }
 
-t_elem      *create_elem(int    value)
+t_elem      *create_elem(int value)
 {
     t_elem      *new;
 
     if (!(new = (t_elem *)malloc(sizeof(t_elem))))
-        printf("%s\n", "error");
+        error();
     new->value = value;
     new->index = -1;
     new->status = false;
@@ -60,10 +59,8 @@ void    parse(t_stack *stack, int argc, char **argv)
     i = 1;
     while (i < argc)
     {
-        // if (!ft_isint(argv[i], false))                 //NEED TO ADD HERE CHECKER
-        //     printf("%s\n", "error");
         add_to_stack(stack, create_elem(ft_atoi(argv[i])));
         i++;
     }
-    
+    isOrdered(stack);
 }
