@@ -2,10 +2,14 @@
 
 void    markup(t_stack *a, t_stack *b)
 {
-    statusCheck(a);
-    moveToB(a, b);
-    moveToA(a, b);
-    sortStackA(a);
+    // statusCheck(a);
+    // moveToB(a, b);
+    // moveToA(a, b);
+    // sortStackA(a);
+    (void ) a;
+    (void ) b;
+
+    printf("here i am");
 }
 
 void    threeMarkup(t_stack *a)

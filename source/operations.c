@@ -74,6 +74,10 @@ void    swap(t_stack *stack, bool id)
         cur = stack->head;
         stack->head = stack->head->next;
         stack->head->next = cur;
+            printf("%d\n", stack->head->value);
+            printf("%d\n", stack->head->next->value);
+            printf("%d\n", stack->head->next->value);
+            printf("%d\n", stack->head->previous->value);
     }
     if (id)
     {
@@ -95,10 +99,12 @@ void    rotate(t_stack *stack, bool id)
         i = 0;
         while (i < (int)stack->size - 1)
         {
-            stack->head = stack->head->next;
+            stack->head = stack->head->previous;
             i++;
+            // printf("%d\n", stack->head->value);
         }
-        stack->head->next = cur;
+        stack->head->previous = cur;
+        // printf("%d\n", stack->head->next->value);
     }
     if (id)
     {
@@ -109,7 +115,7 @@ void    rotate(t_stack *stack, bool id)
     }
 }
 
-void    rr(stack_t  *a, stack_t *b)
+void    rr(t_stack  *a, t_stack *b)
 {
     rotate(a, false);
     rotate(b, false);
@@ -123,7 +129,22 @@ void    reverse_rotate(t_stack *stack, bool id)
 
     if (stack->size >= 2)
     {
-        cur = stack->head
+        cur = stack->head;
+        i = 0;
+        while (i < (int)stack->size - 1)
+        {
+            stack->head = stack->head->next;
+            i++;
+            // printf("%d\n", stack->head->value);
+        }
+        stack->head->next = cur;
+        // printf("%d\n", stack->head->next->value);
     }
-    
+    if (id)
+    {
+        if (stack->stack_index == 'a')
+            ft_putstr("rra\n");
+        else
+            ft_putstr("rrb\n");
+    }
 }

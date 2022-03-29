@@ -43,6 +43,8 @@ void	        error();
 void	        ft_putstr(char *str);
 int             ft_atoi_2(char **str);
 void            startSorting(t_stack *stack_a, t_stack *stack_b);
-
-
+void            rr(t_stack  *a, t_stack *b);
+void            rotate(t_stack *stack, bool id);
+void            reverse_rotate(t_stack *stack, bool id);
+void            swap(t_stack *stack, bool id);
 #endif
