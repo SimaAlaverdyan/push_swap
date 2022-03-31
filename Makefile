@@ -7,7 +7,8 @@ source			=	main.c \
 					indexing.c \
 					error_managment.c \
 					utils.c \
-					sorting.c
+					sorting.c \
+					add_delete_node.c
 
 HEAD			=	include/push_swap.h
 

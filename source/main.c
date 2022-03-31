@@ -4,7 +4,8 @@ void print(t_stack *stack)
 {
     t_elem *current_node = stack->head;
    	size_t i = 0;
-    while (i < stack->size) {
+    while (i < stack->size)
+    {
         printf("%d ", current_node->value);
         current_node = current_node->next;
         i++;
@@ -40,7 +41,10 @@ int main(int argc, char **argv)
     // reverse_rotate(stack_a, true);
     // print(stack_a);
     // printf("\n");
-    swap(stack_a, true);
+    //swap(stack_a, true);
+    //print(stack_a);
+
+    push_elem_to_end(stack_a, 15);
     print(stack_a);
     return (0);
 }  

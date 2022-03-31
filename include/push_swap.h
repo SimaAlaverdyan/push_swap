@@ -47,4 +47,6 @@ void            rr(t_stack  *a, t_stack *b);
 void            rotate(t_stack *stack, bool id);
 void            reverse_rotate(t_stack *stack, bool id);
 void            swap(t_stack *stack, bool id);
+void            push_elem_to_end(t_stack *stack, int new_data);
+void            print(t_stack *stack);
 #endif
